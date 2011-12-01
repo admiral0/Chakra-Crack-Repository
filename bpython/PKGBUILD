@@ -1,0 +1,21 @@
+# Maintainer: Radu Andries <admiral0@tuxfamily.org>
+pkgname=bpython
+pkgver=0.10.1
+pkgrel=1
+epoch=0
+pkgdesc="A fancy interface to the Python interpreter for Unix-like operating systems"
+arch=(i686 x86_64)
+url="http://bpython-interpreter.org/"
+license=('GPL')
+depends=('python' 'python-pygments')
+options=(!emptydirs)
+source=("http://bpython-interpreter.org/releases/${pkgname}-${pkgver}.tar.gz")
+md5sums=('5a270e753be541367e20c4dbae5be928')
+
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  python2 setup.py install --root=$pkgdir/ --optimize=1
+}
+
+# vim:set ts=2 sw=2 et:
